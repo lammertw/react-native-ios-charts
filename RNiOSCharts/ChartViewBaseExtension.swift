@@ -374,5 +374,21 @@ extension ChartViewBase {
 
             self.animate(xAxisDuration: xAxisDuration, yAxisDuration: yAxisDuration, easingOption: easingOption);
         }
+
+        if json["extraOffset"].exists() {
+
+            if json["extraOffset"]["left"].exists() &&
+                json["extraOffset"]["top"].exists() &&
+                json["extraOffset"]["right"].exists() &&
+                json["extraOffset"]["bottom"].exists() {
+
+                self.setExtraOffsets(
+                    left: CGFloat(json["extraOffset"]["left"].floatValue),
+                    top: CGFloat(json["extraOffset"]["top"].floatValue),
+                    right: CGFloat(json["extraOffset"]["right"].floatValue),
+                    bottom: CGFloat(json["extraOffset"]["bottom"].floatValue)
+                )
+            }
+        }
     }
 }
