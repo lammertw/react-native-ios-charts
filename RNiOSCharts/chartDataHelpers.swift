@@ -154,6 +154,11 @@ func getLineData(_ labels: [String], json: JSON!) -> LineChartData {
                 dataSet.valueTextColor = RCTConvert.uiColor(tmp["valueTextColor"].intValue);
             }
 
+            if tmp["valueColors"].exists() {
+                let arrColors = tmp["colors"].arrayObject as! [Int];
+                dataSet.valueColors = arrColors.map({return RCTConvert.uiColor($0)});
+            }
+
             if json["valueFormatter"].exists() {
                 if json["valueFormatter"]["minimumDecimalPlaces"].exists() {
                     minimumDecimalPlaces = json["valueFormatter"]["minimumDecimalPlaces"].intValue;
@@ -313,6 +318,11 @@ func getBarData(_ labels: [String], json: JSON!) -> BarChartData {
                 dataSet.valueTextColor = RCTConvert.uiColor(tmp["valueTextColor"].intValue);
             }
 
+            if tmp["valueColors"].exists() {
+                let arrColors = tmp["colors"].arrayObject as! [Int];
+                dataSet.valueColors = arrColors.map({return RCTConvert.uiColor($0)});
+            }
+
             if tmp["axisDependency"].exists() {
                 let value = tmp["axisDependency"].stringValue;
                 if value == "left" {
@@ -466,6 +476,11 @@ func getBubbleData(_ labels: [String], json: JSON!) -> BubbleChartData {
 
             if tmp["valueTextColor"].exists() {
                 dataSet.valueTextColor = RCTConvert.uiColor(tmp["valueTextColor"].intValue);
+            }
+
+            if tmp["valueColors"].exists() {
+                let arrColors = tmp["colors"].arrayObject as! [Int];
+                dataSet.valueColors = arrColors.map({return RCTConvert.uiColor($0)});
             }
 
             if json["valueFormatter"].exists() {
@@ -630,6 +645,11 @@ func getScatterData(_ labels: [String], json: JSON!) -> ScatterChartData {
                 dataSet.valueTextColor = RCTConvert.uiColor(tmp["valueTextColor"].intValue);
             }
 
+            if tmp["valueColors"].exists() {
+                let arrColors = tmp["colors"].arrayObject as! [Int];
+                dataSet.valueColors = arrColors.map({return RCTConvert.uiColor($0)});
+            }
+
             if tmp["axisDependency"].exists() {
                 let value = tmp["axisDependency"].stringValue;
                 if value == "left" {
@@ -771,6 +791,11 @@ func getCandleStickData(_ labels: [String], json: JSON!) -> CandleChartData {
 
             if tmp["valueTextColor"].exists() {
                 dataSet.valueTextColor = RCTConvert.uiColor(tmp["valueTextColor"].intValue);
+            }
+
+            if tmp["valueColors"].exists() {
+                let arrColors = tmp["colors"].arrayObject as! [Int];
+                dataSet.valueColors = arrColors.map({return RCTConvert.uiColor($0)});
             }
 
             if tmp["axisDependency"].exists() {

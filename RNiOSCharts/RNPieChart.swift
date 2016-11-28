@@ -131,7 +131,12 @@ class RNPieChart : PieChartView {
           if tmp["valueTextColor"].exists() {
             dataSet.valueTextColor = RCTConvert.uiColor(tmp["valueTextColor"].intValue);
           }
-          
+
+          if tmp["valueColors"].exists() {
+            let arrColors = tmp["colors"].arrayObject as! [Int];
+            dataSet.valueColors = arrColors.map({return RCTConvert.uiColor($0)});
+          }
+
           if json["valueFormatter"].exists() {
             if json["valueFormatter"]["minimumDecimalPlaces"].exists() {
               minimumDecimalPlaces = json["valueFormatter"]["minimumDecimalPlaces"].intValue;
